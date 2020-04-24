@@ -1,0 +1,24 @@
+<nav class="navbar">
+  <div class="container">
+    <span>
+      <a routerLink="/">Pulsifi</a>
+    </span>
+    <span class="spacer"></span>
+    <ul>
+      <li *ngIf="userIsAuthenticated">
+        <a mat-button routerLink="/create" routerLinkActive="mat-accent">New Job</a>
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/auth/login" routerLinkActive="mat-accent">Login</a>
+      </li>
+      <li *ngIf="!userIsAuthenticated">
+        <a mat-button routerLink="/auth/signup" routerLinkActive="mat-accent">Signup</a>
+      </li>
+      <li *ngIf="userIsAuthenticated">
+        <button mat-button (click)="onLogout()">Logout</button>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+<!-- Page content -->

@@ -1,0 +1,14 @@
+
+<h2>Job Detail </h2>
+<mat-card class="col-lg-6 offset-lg-3">
+      <ul class="list-group"  *ngIf="this.job">
+        <li class="list-group-item"><strong>Title:</strong> {{ this.job.title }}</li>
+        <li class="list-group-item"><strong>Description:</strong> {{ this.job.description }}</li>
+        <li class="list-group-item"><strong>location:</strong> {{ this.job.location }}</li>
+        <li class="list-group-item"><strong>City:</strong> {{ this.job.city }}</li>
+        <li class="list-group-item"><strong>State:</strong> {{ this.job.state }}</li>
+        <li class="list-group-item"><strong>Country:</strong> {{ this.job.country }}</li>
+        <li class="list-group-item"><strong>Status:</strong>             
+            {{ (this.job.status == '1') ? "Published" : "In Draft" }}</li>
+      </ul>
+</mat-card>

@@ -1,0 +1,31 @@
+<h2>Jobs </h2>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Description</th>
+    <th scope="col">Date</th>
+    <th scope="col">status</th>
+    <th scope="col">Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let job of jobs; index as i">
+    <th scope="row">{{ i + 1 }}</th>
+    <td>
+      {{ job.title }}
+    </td>
+    <td>{{ job.description  }}</td>
+    <td>{{ job.date  }}</td>
+    <td>{{ job.status  }}</td>
+    <td *ngIf="role == 'ROLE_RECRUITER'" >
+      <button type="button" [routerLink]="['/edit', job.id]" class="btn btn-success">Edit</button>
+      <button type="button" [routerLink]="['/delete', job.id]" class="btn btn-danger">Delete</button>  
+    </td>
+    <td *ngIf="role == 'ROLE_USER'" >
+     <button type="button" [routerLink]="['/view', job.id]" class="btn btn-danger">Detail</button>  
+    </td>
+  </tr>
+  </tbody>
+</table>

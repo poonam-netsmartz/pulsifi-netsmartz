@@ -1,0 +1,48 @@
+<h2>Job Update </h2>
+<mat-card class="col-lg-6 offset-lg-3">
+  <mat-spinner *ngIf="isLoading"></mat-spinner>
+  <form [formGroup]="form" (submit)="onSaveJob()" *ngIf="!isLoading">
+    <mat-form-field>
+      <input matInput type="text" formControlName="title" placeholder="Job Title">
+      <mat-error *ngIf="form.get('title').invalid">Please enter a job title.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Select Job Date</mat-label>
+      <input matInput [matDatepicker]="picker" formControlName="date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field> 
+    <mat-form-field>
+      <input matInput type="text" formControlName="location" placeholder="Location">
+      <mat-error *ngIf="form.get('location').invalid">Please enter a location.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="street" placeholder="Street">
+      <mat-error *ngIf="form.get('street').invalid">Please enter a street.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="city" placeholder="City">
+      <mat-error *ngIf="form.get('city').invalid">Please enter a City.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="state" placeholder="State">
+      <mat-error *ngIf="form.get('state').invalid">Please enter a State.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" formControlName="country" placeholder="Country">
+      <mat-error *ngIf="form.get('country').invalid">Please enter a Country.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <textarea matInput rows="4" formControlName="description" placeholder="Job Description"></textarea>
+      <mat-error *ngIf="form.get('description').invalid">Please enter description.</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Status</mat-label>
+      <select matNativeControl required formControlName="status">
+        <option value="1">Publish</option>
+        <option value="0">Draft</option>
+      </select>
+    </mat-form-field>
+    <button mat-raised-button color="accent" type="submit">Save Job</button>
+  </form>
+</mat-card>
